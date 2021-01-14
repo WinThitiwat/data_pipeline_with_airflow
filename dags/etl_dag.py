@@ -13,6 +13,8 @@ from etl_subdag import run_data_quality_checks
 
 START_DATE = datetime(2019, 1, 12)
 DAG_ID = 'sparkify_etl_dag'
+DAG_ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
+TEMPLATE_PATH = os.path.join(DAG_ROOT_PATH, 'sql')
 
 default_args = {
     'owner': 'sparkify_pipeline',
@@ -20,7 +22,8 @@ default_args = {
     'depend_on_past': False,
     'retries': 3,
     'email_on_failure': False,
-    'retry_delay': timedelta(minutes=5)
+    'retry_delay': timedelta(minutes=5),
+    'template_searchpath': TEMPLATE_PATH
 }
 
 dag = DAG(dag_id=DAG_ID,
