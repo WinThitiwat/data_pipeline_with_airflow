@@ -88,7 +88,7 @@ class StageToRedshiftOperator(BaseOperator):
         start_time = time_now()
         redshift_hook.run(formatted_copy_query)
 
-        self.log.info('Copying data to "{self.target_table}" took: {took:2f} seconds'.format(
+        self.log.info('Copying data to "{self.target_table}" took: {took:.2f} seconds'.format(
                 target_table=self.target_table,
                 took=time_now() - start_time
             ))

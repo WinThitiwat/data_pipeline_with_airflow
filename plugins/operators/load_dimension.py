@@ -32,7 +32,7 @@ class LoadDimensionOperator(BaseOperator):
 
         :param sql_query: SQL query to be compiled and loaded to the target table
         :type sql_query: str
-        
+
         :param delete_records_before_load: If True, the Operator will 
             truncate the target table before the load. Default is False
         :type delete_records_before_load: bool
@@ -69,7 +69,7 @@ class LoadDimensionOperator(BaseOperator):
         start_time = time_now()
         redshift_hook.run(self.sql_query)
 
-        self.log.info('Loading dimension records to "{target_table}" took: {took:2f} seconds'.format(
+        self.log.info('Loading dimension records to "{target_table}" took: {took:.2f} seconds'.format(
                 target_table=self.target_table,
                 took=time_now() - start_time
             ))

@@ -32,7 +32,7 @@ class CheckNoResultOperator(BaseOperator):
 
             table_records = redshift_hook.get_records(f'SELECT COUNT(*) FROM {table}')
 
-            self.log.info('Data quality check took on "{target_table}": {took:2f} seconds'.format(
+            self.log.info('Data quality check took on "{target_table}": {took:.2f} seconds'.format(
                     target_table=table,
                     took=time_now() - start_time
                 ))

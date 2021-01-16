@@ -28,7 +28,7 @@ class LoadFactOperator(BaseOperator):
 
         :param target_table: the Amazon Redshift target table name
         :type target_table: str
-        
+
         :param sql_query: SQL query to be compiled and loaded to the target table
         :type sql_query: str
         """
@@ -48,7 +48,7 @@ class LoadFactOperator(BaseOperator):
         start_time = time_now()
         redshift_hook.run(self.sql_query)
 
-        self.log.info('Loading fact records to "{target_table}" took: {took:2f} seconds'.format(
+        self.log.info('Loading fact records to "{target_table}" took: {took:.2f} seconds'.format(
                 target_table=self.target_table,
                 took=time_now() - start_time
             ))
