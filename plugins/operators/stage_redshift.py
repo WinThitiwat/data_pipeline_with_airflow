@@ -3,9 +3,9 @@ from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 
 # deprecated
-from airflow.contrib.hooks.aws_hook import AwsHook
+# from airflow.contrib.hooks.aws_hook import AwsHook
 # replacement of the contrib.hook.aws_hook
-from airflow.providers.amazon.aws.hooks.base_aws import AwsBaseHook 
+# from airflow.providers.amazon.aws.hooks.base_aws import AwsBaseHook 
 
 from time import time as time_now
 
@@ -62,7 +62,7 @@ class StageToRedshiftOperator(BaseOperator):
         self.log.info('Start executing StageToRedshiftOperator')
 
         # get all relevant connection hook to run command
-        aws_hook = AwsBaseHook(self.aws_credentials_id)
+        aws_hook = 'test'#AwsBaseHook(self.aws_credentials_id)
         aws_credentials = aws_hook.get_credentials()
         redshift_hook = PostgresHook(postgres_conn_id=self.redshift_conn_id)
         

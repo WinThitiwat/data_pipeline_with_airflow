@@ -3,8 +3,8 @@ import datetime
 from airflow import DAG
 from airflow.operators.postgres_operator import PostgresOperator
 from airflow.operators.dummy_operator import DummyOperator
-from airflow.operators import CheckHasRowOperator
-from airflow.operators import CheckNoResultOperator
+from operators.check_has_row import CheckHasRowOperator
+from operators.check_no_result import CheckNoResultOperator
 
 def run_data_quality_checks(
     parent_dag_name,
@@ -40,7 +40,7 @@ def run_data_quality_checks(
         )
 
         end_operator = DummyOperator(
-            task_id='Complete_quality_check_on_{table}',  
+            task_id=f'Complete_quality_check_on_{table}',  
             dag=dag)
 
         start_operator >> check_no_result 

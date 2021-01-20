@@ -3,7 +3,7 @@ import os
 from airflow import DAG
 from airflow.operators.dummy_operator import DummyOperator
 from airflow.operators.subdag_operator import SubDagOperator
-from airflow.operators import (StageToRedshiftOperator, LoadFactOperator,
+from operators import (StageToRedshiftOperator, LoadFactOperator,
                                 LoadDimensionOperator, DataQualityOperator)
 from helpers import SqlQueries
 from etl_subdag import run_data_quality_checks
