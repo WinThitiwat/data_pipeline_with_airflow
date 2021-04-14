@@ -14,9 +14,9 @@ class LoadFactOperator(BaseOperator):
 
     @apply_defaults
     def __init__(self,
-                 redshift_conn_id="",
-                 target_table="",
-                 sql_query="",
+                 redshift_conn_id='',
+                 target_table='',
+                 sql_query='',
                  *args, **kwargs):
         """
         Constructs all the necessary attributes for the 

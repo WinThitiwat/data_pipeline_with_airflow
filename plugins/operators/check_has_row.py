@@ -36,14 +36,13 @@ class CheckHasRowOperator(BaseOperator):
         num_records = table_records[0][0]
 
         if num_records < 1:
-
             self.log.warn(f'Data quality check on "{self.target_table}" status: FAILED!')
             self.log.warn(f'Data quality check response: "{self.target_table}" contained 0 rows')
             
             raise ValueError(f'Data quality check failed on {self.target_table}')
        
         self.log.info(f'Data quality check on "{self.target_table}" status: PASSED!')
-        
+        self.log.info(f'Number of records on "{self.target_table}" table: {num_records}')
 
             
 

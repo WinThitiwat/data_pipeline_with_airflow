@@ -26,14 +26,14 @@ def run_data_quality_checks(
             dag=dag)
 
         check_no_result = CheckNoResultOperator(
-            task_id='Check_no_result_on_{}_table'.format(table),
+            task_id=f'Check_no_result_on_{table}_table',
             dag=dag,
             redshift_conn_id=redshift_conn_id,
             target_table=table
         )
 
         check_has_row = CheckHasRowOperator(
-            task_id='Check_has_row_on_{}_table'.format(table),
+            task_id=f'Check_has_row_on_{table}_table',
             dag=dag,
             redshift_conn_id=redshift_conn_id,
             target_table=table

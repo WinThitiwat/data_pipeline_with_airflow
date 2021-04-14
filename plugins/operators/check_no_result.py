@@ -35,12 +35,12 @@ class CheckNoResultOperator(BaseOperator):
             ))
 
         if len(table_records) < 1 or len(table_records[0]) < 1:
-
             self.log.warn(f'Data quality check on "{self.target_table}" status: FAILED!')
             self.log.warn(f'Data quality check response: "{self.target_table}" return no results')
             
             raise ValueError(f'Data quality check failed on {self.target_table}')
         
         self.log.info(f'Data quality check on "{self.target_table}" status: PASSED!')
-            
+        self.log.info(f'Number of results on "{self.target_table}" table: {len(table_records)}')
+        self.log.info(f'Number of records inside the results on "{self.target_table}" table: {len([table_records[0]])}')
 
